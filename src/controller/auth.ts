@@ -19,7 +19,7 @@ async function Login(req: CustomRequest, res: Response) {
             "message":"Invalid username"
         })
     }
-    let passCheck = await hashCheck(req.body.password,user.createdAt.toUTCString(),user.password)
+    let passCheck = await hashCheck(req.body.password,user.created_at.toUTCString(),user.password)
     if (passCheck) {
         let token = jwt.sign({"username":req.body.username}, process.env.SECRET_TOKEN ?? "" , {expiresIn:"7d"})
         res.json({
@@ -46,7 +46,7 @@ async function Register(req: CustomRequest, res: Response) {
             data:{
                 username: request.username,
                 password: hashedPassword,
-                createdAt: created
+                created_at: created
             }
         })
         return res.json({
@@ -74,7 +74,7 @@ async function Me(req: CustomRequest, res: Response) {
     let user = await prismaClient.user.findFirst({
         select:{
             username:true,
-            createdAt:true,
+            created_at:true,
         },
         where:{
             username:req.user?.username

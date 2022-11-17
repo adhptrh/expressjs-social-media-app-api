@@ -14,7 +14,7 @@ model User {
   id String @id @default(uuid())
   username String @unique
   password String
-  createdAt DateTime
+  created_at DateTime
   posts Post[]
 }
 
