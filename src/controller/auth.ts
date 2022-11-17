@@ -3,6 +3,7 @@ import prismaClient, { Prisma } from "../../prisma"
 import { validationResult } from "express-validator"
 import bcrypt from "bcrypt"
 import { hashPassword, hashCheck } from "../util/utils"
+import jwt from "jsonwebtoken"
 
 async function Login(req: Request, res: Response) {
     let user = await prismaClient.user.findFirst({
@@ -17,10 +18,16 @@ async function Login(req: Request, res: Response) {
             "message":"Invalid username"
         })
     }
-
     let passCheck = await hashCheck(req.body.password,user.createdAt.toUTCString(),user.password)
     if (passCheck) {
-        res.json(user)
+        let token = jwt.sign({"username":req.body.username}, process.env.SECRET_TOKEN ?? "" , {expiresIn:"7d"})
+        res.json({
+            status:true,
+            message:"Successfully logged",
+            data:{
+                token:token
+            }
+        })
     } else {
         return res.status(401).json({
             "status":false,
