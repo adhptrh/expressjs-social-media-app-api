@@ -4,8 +4,9 @@ import { validationResult } from "express-validator"
 import bcrypt from "bcrypt"
 import { hashPassword, hashCheck } from "../util/utils"
 import jwt from "jsonwebtoken"
+import {CustomRequest, RegisterRequest} from "../type/types"
 
-async function Login(req: Request, res: Response) {
+async function Login(req: CustomRequest, res: Response) {
     let user = await prismaClient.user.findFirst({
         where:{
             username:req.body.username
@@ -36,8 +37,8 @@ async function Login(req: Request, res: Response) {
     }
 }
 
-async function Register(req: Request, res: Response) {
-    let request:RegisterRequest = req.body
+async function Register(req: CustomRequest, res: Response) {
+    let request:RegisterRequest = req.body 
     let created = new Date()
     let hashedPassword = await hashPassword(request.password,created.toUTCString())
     try {
@@ -69,7 +70,25 @@ async function Register(req: Request, res: Response) {
     }
 }
 
+async function Me(req: CustomRequest, res: Response) {
+    let user = await prismaClient.user.findFirst({
+        select:{
+            username:true,
+            createdAt:true,
+        },
+        where:{
+            username:req.user?.username
+        }
+    })
+    return res.json({
+        "status":true,
+        "message":"Authenticated",
+        "data": user
+    })
+}
+
 export {
     Login,
-    Register
+    Register,
+    Me
 }
