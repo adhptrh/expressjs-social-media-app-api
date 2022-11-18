@@ -33,6 +33,11 @@ async function GetAll(req: Request, res: Response) {
                     username: true,
                     created_at: true,
                 }
+            },
+            _count: {
+                select: {
+                    likes: true,
+                }
             }
         }
     })
@@ -51,6 +56,11 @@ async function Get(req: Request, res: Response) {
         select: {
             id:true,
             content:true,
+            _count: {
+                select: {
+                    likes: true,
+                }
+            }
         },
         where: {
             id:id
