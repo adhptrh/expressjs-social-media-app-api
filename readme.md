@@ -50,3 +50,43 @@ Status: **400** - Request tidak valid, seperti: kolom tidak diisi
 }
 ```
 </details>
+
+<details>
+    <summary>Login Akun</summary>
+
+### Request
+    
+```http
+POST http://localhost:3000/auth/login
+Content-Type:  application/json
+
+{"username":"isi_username","password":"isi_password"}
+```
+### Response
+Status: **200** - Berhasil login
+```json
+{
+  "status": true,
+  "message": "Successfully logged",
+  "data": {
+    "token": "..."
+  }
+}
+```
+Status: **401** - Username tidak terdaftar
+    
+```json
+{
+  "status": false,
+  "message": "Invalid username"
+}
+```
+Status: **401** - Password salah
+    
+```json
+{
+  "status": false,
+  "message": "Wrong password",
+}
+```
+</details>
