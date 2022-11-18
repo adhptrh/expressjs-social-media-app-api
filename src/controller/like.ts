@@ -1,6 +1,6 @@
 import { Response } from "express";
 import { CustomRequest } from "../type/types";
-import prismaClient from "../../prisma"
+import prismaClient from "../prisma"
 import { Like } from "@prisma/client";
 
 async function Create(req: CustomRequest, res: Response) {

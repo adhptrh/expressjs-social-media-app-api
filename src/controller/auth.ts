@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import prismaClient, { Prisma } from "../../prisma"
+import prismaClient, { Prisma } from "../prisma"
 import { validationResult } from "express-validator"
 import bcrypt from "bcrypt"
 import { hashPassword, hashCheck } from "../util/utils"

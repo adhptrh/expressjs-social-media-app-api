@@ -1,5 +1,5 @@
 import { Request, Response } from "express"
-import prismaClient from "../../prisma"
+import prismaClient from "../prisma"
 import { CustomRequest } from "../type/types"
 
 async function Create(req: CustomRequest, res: Response) {
