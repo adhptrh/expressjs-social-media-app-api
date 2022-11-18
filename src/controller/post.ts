@@ -92,11 +92,24 @@ async function Update(req: CustomRequest, res: Response) {
     })
 }
 
-function Delete(req: Request, res: Response) {
-    res.send(JSON.stringify({
-        "status":true,
-        "message":"test"
-    }))
+async function Delete(req: CustomRequest, res: Response) {
+    let post = await prismaClient.post.deleteMany({
+        where: {
+            id:req.params.id,
+            authorId:req.user?.id
+        }
+    })
+
+    if (post.count > 0) {
+        return res.json({
+            "status":true,
+            "message":"Post deleted"
+        })
+    }
+    return res.json({
+        "status":false,
+        "message":"Post deleted or you're not an author."
+    })
 }
 
 export {

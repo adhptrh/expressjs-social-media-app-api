@@ -15,6 +15,10 @@ router.patch(
     authenticated,
     PostController.Update
 )
-router.delete("/:id", PostController.Delete)
+router.delete(
+    "/:id", 
+    authenticated,
+    PostController.Delete
+)
 
 export default router
