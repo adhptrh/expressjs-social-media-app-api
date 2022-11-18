@@ -27,9 +27,10 @@ export default function(req: CustomRequest, res: Response, next: NextFunction) {
                 created_at:true,
             },
             where:{
-                username:req.user?.username
+                username:user.username
             }
         })
+
         if (userfound == null){
             return res.status(401).json({
                 "status":false,
