@@ -5,3 +5,4 @@ Teknologi:
 - Menggunakan Bcrypt untuk melakukan hashing password user dan diperkuat menggunakan metode dynamic salt.
 - Menggunakan PostgreSQL untuk database.
 - Menggunakan library Prisma sebagai ORM dan sistem migrasi database.
+- Menggunakan library express-validator untuk memudahkan validasi request 
