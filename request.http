@@ -8,7 +8,7 @@ Content-Type: application/json
 POST http://localhost:3000/auth/login
 Content-Type: application/json
 
-{"username":"jojo3","password":"123456"}
+{"username":"jojo1","password":"123456"}
 
 ###
 
@@ -20,7 +20,7 @@ POST http://localhost:3000/post
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Impvam8xIiwiaWF0IjoxNjY4NzA4NDMxLCJleHAiOjE2NjkzMTMyMzF9.GZW9UHEFqDQCn3e7fhi6Pvm1ZJPu7owpjQDuaAkZTG8
 Content-Type: application/json
 
-{"content":"wawa"}
+{"content":"this is content"}
 
 ###
 
@@ -28,13 +28,31 @@ GET http://localhost:3000/post
 
 ###
 
-GET http://localhost:3000/post/c28355e3-ec33-4778-b9ef-d4074f098153
+GET http://localhost:3000/post/7b85093f-cdb6-49b1-be0e-e1b26cc795e1
 
 
 ###
 
-PATCH http://localhost:3000/post/c28355e3-ec33-4778-b9ef-d4074f098153
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Impvam8zIiwiaWF0IjoxNjY4NzY3MDE5LCJleHAiOjE2NjkzNzE4MTl9.QoUw5Y-Shx4MCGizBG7r_m81G3TDUPFeCH5aHvmdgrU
+PATCH http://localhost:3000/post/7e6d2413-a1a9-45e3-9ce9-665a5d39ef6d
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Impvam8xIiwiaWF0IjoxNjY4NzA4NDMxLCJleHAiOjE2NjkzMTMyMzF9.GZW9UHEFqDQCn3e7fhi6Pvm1ZJPu7owpjQDuaAkZTG8
 Content-Type: application/json
 
 {"content":"worked"}
+
+###
+
+DELETE http://localhost:3000/post/7ea89845-f20a-428a-a9b2-8d2e9eea7eb2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Impvam8xIiwiaWF0IjoxNjY4NzA4NDMxLCJleHAiOjE2NjkzMTMyMzF9.GZW9UHEFqDQCn3e7fhi6Pvm1ZJPu7owpjQDuaAkZTG8
+Content-Type: application/json
+
+###
+
+POST http://localhost:3000/like/7e6d2413-a1a9-45e3-9ce9-665a5d39ef6d
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Impvam8xIiwiaWF0IjoxNjY4NzA4NDMxLCJleHAiOjE2NjkzMTMyMzF9.GZW9UHEFqDQCn3e7fhi6Pvm1ZJPu7owpjQDuaAkZTG8
+Content-Type: application/json
+
+###
+
+DELETE http://localhost:3000/like/7e6d2413-a1a9-45e3-9ce9-665a5d39ef6d
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Impvam8xIiwiaWF0IjoxNjY4NzA4NDMxLCJleHAiOjE2NjkzMTMyMzF9.GZW9UHEFqDQCn3e7fhi6Pvm1ZJPu7owpjQDuaAkZTG8
+Content-Type: application/json
