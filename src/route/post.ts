@@ -3,12 +3,12 @@ import * as PostController from "../controller/post"
 import authenticated from "../middleware/authenticated"
 let router:Router = express.Router()
 
-router.get("/", PostController.Get)
-router.get("/:id", PostController.Find)
+router.get("/", PostController.GetAll)
+router.get("/:id", PostController.Get)
 router.post(
     "/", 
     authenticated,
-    PostController.Create
+    PostController.Create   
 )
 router.patch("/:id", PostController.Update)
 router.delete("/:id", PostController.Delete)

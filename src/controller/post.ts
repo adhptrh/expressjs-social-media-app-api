@@ -9,8 +9,6 @@ async function Create(req: CustomRequest, res: Response) {
             message:"Unauthorized"
         })
     }
-    console.log(req.body)
-    console.log(req.user.id)
     let created = await prismaClient.post.create({
         data:{
             content:req.body.content,
@@ -24,14 +22,30 @@ async function Create(req: CustomRequest, res: Response) {
     })
 }
 
-function Get(req: Request, res: Response) {
-    res.send(JSON.stringify({
+async function GetAll(req: Request, res: Response) {
+    let posts = await prismaClient.post.findMany({
+        select: {
+            id:true,
+            content:true,
+            author:{
+                select: {
+                    id:true,
+                    username: true,
+                    created_at: true,
+                }
+            }
+        }
+    })
+    res.json({
         "status":true,
-        "message":"test"
-    }))
+        "message":"Success",
+        "data":{
+            "posts":posts,
+        }
+    })
 }
 
-function Find(req: Request, res: Response) {
+function Get(req: Request, res: Response) {
     res.send(JSON.stringify({
         "status":true,
         "message":"test"
@@ -54,7 +68,7 @@ function Delete(req: Request, res: Response) {
 
 export {
     Get,
-    Find,
+    GetAll,
     Update,
     Delete,
     Create
