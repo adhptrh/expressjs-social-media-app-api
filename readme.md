@@ -12,14 +12,12 @@
 
 ## API Docs
 <details>
-<summary>Registrasi Akun</summary>
-<p>
-Request:
-```http
-POST http://localhost:3000/auth/register
-Content-Type:  application/json
+    <summary>Registrasi Akun</summary>
+    Request:
+    ```http
+    POST http://localhost:3000/auth/register
+    Content-Type:  application/json
 
-{"username":"isi_username","password":"isi_password"}
-```
-</p>
+    {"username":"isi_username","password":"isi_password"}
+    ```
 </details>
