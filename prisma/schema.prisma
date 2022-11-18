@@ -16,6 +16,7 @@ model User {
   password String
   created_at DateTime
   posts Post[]
+  likes Like[]
 }
 
 model Post {
@@ -23,4 +24,13 @@ model Post {
   content String
   author User @relation(fields:[authorId], references: [id])
   authorId String
+  likes Like[]
+}
+
+model Like {
+  id Int @id @default(autoincrement())
+  userId String
+  user User @relation(fields: [userId], references: [id])
+  postId String
+  post Post @relation(fields: [postId], references: [id])
 }
