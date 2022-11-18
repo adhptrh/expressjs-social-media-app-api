@@ -71,19 +71,10 @@ async function Register(req: CustomRequest, res: Response) {
 }
 
 async function Me(req: CustomRequest, res: Response) {
-    let user = await prismaClient.user.findFirst({
-        select:{
-            username:true,
-            created_at:true,
-        },
-        where:{
-            username:req.user?.username
-        }
-    })
     return res.json({
         "status":true,
         "message":"Authenticated",
-        "data": user
+        "data": req.user
     })
 }
 
