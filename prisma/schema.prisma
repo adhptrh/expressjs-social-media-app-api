@@ -24,6 +24,7 @@ model Post {
   content String
   author User @relation(fields:[authorId], references: [id])
   authorId String
+  created_at DateTime @default(now())
   likes Like[]
 }
 
