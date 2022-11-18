@@ -14,3 +14,10 @@ Content-Type: application/json
 
 GET http://localhost:3000/auth/me
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Impvam8xIiwiaWF0IjoxNjY4NzA4NDMxLCJleHAiOjE2NjkzMTMyMzF9.GZW9UHEFqDQCn3e7fhi6Pvm1ZJPu7owpjQDuaAkZTG8
+###
+
+POST http://localhost:3000/post
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Impvam8xIiwiaWF0IjoxNjY4NzA4NDMxLCJleHAiOjE2NjkzMTMyMzF9.GZW9UHEFqDQCn3e7fhi6Pvm1ZJPu7owpjQDuaAkZTG8
+Content-Type: application/json
+
+{"content":"wawa"}
