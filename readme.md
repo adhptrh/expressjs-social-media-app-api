@@ -22,3 +22,10 @@
     {"username":"isi_username","password":"isi_password"}
     ```
 </details>
+
+```http
+POST http://localhost:3000/auth/register
+Content-Type:  application/json
+
+{"username":"isi_username","password":"isi_password"}
+```
