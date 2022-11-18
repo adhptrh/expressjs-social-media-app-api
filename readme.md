@@ -14,7 +14,7 @@
 <details>
     <summary>Registrasi Akun</summary>
 
-### Request
+Request
     
 ```http
 POST http://localhost:3000/auth/register
