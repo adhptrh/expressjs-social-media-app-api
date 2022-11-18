@@ -27,6 +27,7 @@ async function GetAll(req: Request, res: Response) {
         select: {
             id:true,
             content:true,
+            created_at:true,
             author:{
                 select: {
                     id:true,
@@ -56,6 +57,7 @@ async function Get(req: Request, res: Response) {
         select: {
             id:true,
             content:true,
+            created_at:true,
             _count: {
                 select: {
                     likes: true,
