@@ -45,11 +45,28 @@ async function GetAll(req: Request, res: Response) {
     })
 }
 
-function Get(req: Request, res: Response) {
-    res.send(JSON.stringify({
+async function Get(req: Request, res: Response) {
+    let id = req.params.id
+    let post = await prismaClient.post.findFirst({
+        select: {
+            id:true,
+            content:true,
+        },
+        where: {
+            id:id
+        }
+    })
+    if (post == null) {
+        return res.status(404).json({
+            "status":false,
+            "message":"Post not found"
+        })
+    }
+    return res.json({
         "status":true,
-        "message":"test"
-    }))
+        "message":"Success",
+        "data":post
+    })
 }
 
 function Update(req: Request, res: Response) {
