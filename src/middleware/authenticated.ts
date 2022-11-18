@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken"
 import { CustomRequest } from "../type/types"
-import prismaClient from "../../prisma"
+import prismaClient from "../prisma"
 import { User } from "../type/types"
 
 export default function(req: CustomRequest, res: Response, next: NextFunction) {
