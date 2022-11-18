@@ -10,7 +10,7 @@
 - Menggunakan library express-validator untuk memudahkan validasi request
 - Menggunakan render.com untuk mendeploy web ini.
 
-## API Docs
+## Dokumentasi API
 <details>
     <summary>Registrasi Akun</summary>
 
@@ -23,14 +23,14 @@ Content-Type:  application/json
 {"username":"isi_username","password":"isi_password"}
 ```
 ### Response
-Status: 200 - Berhasil mendaftar akun
+Status: **200** - Berhasil mendaftar akun
 ```json
 {
   "status": true,
   "message": "User registered"
 }
 ```
-Status: 403 - Username sudah terdaftar
+Status: **403** - Username sudah terdaftar
     
 ```json
 {
@@ -38,7 +38,7 @@ Status: 403 - Username sudah terdaftar
   "message": "User already registered"
 }
 ```
-Status: 400 - Request tidak valid, seperti: kolom tidak diisi
+Status: **400** - Request tidak valid, seperti: kolom tidak diisi
     
 ```json
 {
