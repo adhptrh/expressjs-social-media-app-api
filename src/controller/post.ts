@@ -69,11 +69,27 @@ async function Get(req: Request, res: Response) {
     })
 }
 
-function Update(req: Request, res: Response) {
-    res.send(JSON.stringify({
-        "status":true,
-        "message":"test"
-    }))
+async function Update(req: CustomRequest, res: Response) {
+    let post = await prismaClient.post.updateMany({
+        where: {
+            id:req.params.id,
+            authorId:req.user?.id
+        },
+        data: {
+            content: req.body.content
+        }
+    })
+
+    if (post.count > 0) {
+        return res.json({
+            "status":true,
+            "message":"Post updated"
+        })
+    }
+    return res.json({
+        "status":false,
+        "message":"Invalid author"
+    })
 }
 
 function Delete(req: Request, res: Response) {

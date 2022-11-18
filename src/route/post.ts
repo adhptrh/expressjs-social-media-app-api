@@ -10,7 +10,11 @@ router.post(
     authenticated,
     PostController.Create   
 )
-router.patch("/:id", PostController.Update)
+router.patch(
+    "/:id",
+    authenticated,
+    PostController.Update
+)
 router.delete("/:id", PostController.Delete)
 
 export default router
