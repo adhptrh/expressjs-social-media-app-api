@@ -25,4 +25,7 @@ Content-Type: application/json
 ###
 
 GET http://localhost:3000/post
-    
+
+###
+
+GET http://localhost:3000/post/c28355e3-ec33-4778-b9ef-d4074f098153
